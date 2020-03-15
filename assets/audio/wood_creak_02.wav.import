@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wood_creak_02.wav-ded99aa8e8ba1716c6f7bcf82637c611.sample"
+
+[deps]
+
+source_file="res://assets/audio/wood_creak_02.wav"
+dest_files=[ "res://.import/wood_creak_02.wav-ded99aa8e8ba1716c6f7bcf82637c611.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
