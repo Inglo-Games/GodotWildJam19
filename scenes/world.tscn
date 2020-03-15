@@ -15,5 +15,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="projectiles" type="Node2D" parent="."]
+
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2555.53, 1688.5 )

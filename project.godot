@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Cannonball",
+"language": "GDScript",
+"path": "res://scripts/cannonball.gd"
+} ]
 _global_script_class_icons={
-
+"Cannonball": ""
 }
 
 [application]
@@ -67,4 +72,3 @@ lower_sails={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
