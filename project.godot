@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Cannonball",
 "language": "GDScript",
 "path": "res://scripts/cannonball.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Ship",
+"language": "GDScript",
+"path": "res://scripts/ship.gd"
 } ]
 _global_script_class_icons={
-"Cannonball": ""
+"Cannonball": "",
+"Ship": ""
 }
 
 [application]
@@ -66,6 +72,14 @@ lower_sails={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player_ship"
+2d_physics/layer_2="player_ball"
+2d_physics/layer_3="ai_ship"
+2d_physics/layer_4="ai_ball"
+2d_physics/layer_5="land"
 
 [rendering]
 
