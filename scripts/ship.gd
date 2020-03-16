@@ -1,13 +1,14 @@
 extends KinematicBody2D
 class_name Ship
 
-const ROT_PER_SEC := 0.96  # Max rotation speed in radians/second
+const ROT_PER_SEC := 0.48  # Still rotation speed in radians/second
 const WIND_SPEED := 3.0    # Max movement speed in units/second
 const RELOAD_TIME := 2.5   # Time to reload cannons in seconds
 
 onready var Cannonball := preload("res://scenes/cannonball.tscn")
 
 var velocity := 0.0
+var health := 5
 var is_sail_up := false
 var is_cannon_ready_port := true
 var is_cannon_ready_star := true
@@ -41,3 +42,9 @@ func fire_cannon(is_player:bool, is_port_side:bool):
 		is_cannon_ready_port = true
 	else:
 		is_cannon_ready_star = true
+
+func deal_damage(amount:int):
+	health -= amount
+	if health <= 0:
+		queue_free()
+

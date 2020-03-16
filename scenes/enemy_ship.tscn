@@ -7,6 +7,7 @@
 extents = Vector2( 32, 32 )
 
 [node name="enemy_ship" type="KinematicBody2D"]
+position = Vector2( 0, -0.902496 )
 collision_layer = 4
 collision_mask = 19
 script = ExtResource( 2 )
@@ -19,3 +20,34 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="tween" type="Tween" parent="."]
+
+[node name="port_ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -140, 0 )
+collision_mask = 3
+
+[node name="port_bow_ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -250, -90 )
+collision_mask = 3
+
+[node name="port_stern_ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -250, 90 )
+collision_mask = 3
+
+[node name="star_ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 140, 0 )
+collision_mask = 3
+
+[node name="star_bow_ray" type="RayCast2D" parent="."]
+position = Vector2( 0, -0.814514 )
+enabled = true
+cast_to = Vector2( 250, -90 )
+collision_mask = 3
+
+[node name="star_stern_ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 250, 90 )
+collision_mask = 3
