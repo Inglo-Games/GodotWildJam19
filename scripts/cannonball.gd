@@ -16,11 +16,15 @@ func _ready():
 	
 	$cannon.play()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var collision_info := move_and_collide(direction.normalized() * SPEED)
 	if(collision_info):
+		collision_info.collider.deal_damage(3)
 		timer.stop()
 		$hit.play()
+		$sprite.visible = false
+		$shape.disabled = true
+		yield($hit, "finished")
 		queue_free()
 
 # Function plays when lifetime ends and nothing is hit
@@ -30,3 +34,7 @@ func _on_timeout():
 	$splash.play()
 	yield($splash, "finished")
 	queue_free()
+
+# Function needed for collisions with other cannonballs, not actually used
+func deal_damage(_amount:int):
+	pass

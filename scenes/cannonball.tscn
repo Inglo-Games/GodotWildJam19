@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/cannonball.svg" type="Texture" id=1]
+[ext_resource path="res://assets/images/cannonball.svg" type="Texture" id=1]
 [ext_resource path="res://scripts/cannonball.gd" type="Script" id=2]
 [ext_resource path="res://assets/audio/impact_01.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/cannon.wav" type="AudioStream" id=4]
@@ -10,7 +10,8 @@ radius = 60.0
 
 [node name="cannonball" type="KinematicBody2D"]
 scale = Vector2( 0.2, 0.2 )
-collision_mask = 2
+collision_layer = 10
+collision_mask = 15
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
@@ -21,11 +22,14 @@ shape = SubResource( 1 )
 
 [node name="cannon" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+bus = "SFX"
 
 [node name="splash" type="AudioStreamPlayer2D" parent="."]
+bus = "SFX"
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+bus = "SFX"
 
 [node name="timer" type="Timer" parent="."]
 process_mode = 0
