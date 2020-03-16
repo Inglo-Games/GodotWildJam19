@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ocean.png-3379d76ef593ad0d512f8899413916a4.stex"
+path="res://.import/cannonball.svg-4bb33bf52a663e90e1e1d8b5af7bd0a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ocean.png"
-dest_files=[ "res://.import/ocean.png-3379d76ef593ad0d512f8899413916a4.stex" ]
+source_file="res://assets/images/cannonball.svg"
+dest_files=[ "res://.import/cannonball.svg-4bb33bf52a663e90e1e1d8b5af7bd0a5.stex" ]
 
 [params]
 
