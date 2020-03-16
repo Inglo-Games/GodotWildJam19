@@ -43,6 +43,20 @@ func fire_cannon(is_player:bool, is_port_side:bool):
 	else:
 		is_cannon_ready_star = true
 
+func raise_sails():
+	if(not is_sail_up):
+		is_sail_up = true
+		var curr_vel = velocity
+		tween.interpolate_property(self, "velocity", curr_vel, 1.0, 0.6)
+		tween.start()
+
+func lower_sails():
+	if(is_sail_up):
+		is_sail_up = false
+		var curr_vel = velocity
+		tween.interpolate_property(self, "velocity", curr_vel, 0.0, 0.6)
+		tween.start()
+
 func deal_damage(amount:int):
 	health -= amount
 	if health <= 0:
