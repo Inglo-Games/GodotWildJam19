@@ -21,6 +21,8 @@ __meta__ = {
 anchor_top = 0.05
 anchor_right = 1.0
 anchor_bottom = 0.45
+margin_left = -0.773804
+margin_right = -0.773804
 custom_fonts/font = ExtResource( 2 )
 text = "The Incredible Pirate Race"
 align = 1
@@ -53,6 +55,9 @@ __meta__ = {
 margin_top = 103.0
 margin_right = 552.0
 margin_bottom = 145.0
+focus_neighbour_bottom = NodePath("../options_btn")
+focus_next = NodePath("../options_btn")
+shortcut_in_tooltip = false
 text = "Set Sail"
 flat = true
 
@@ -60,7 +65,10 @@ flat = true
 margin_top = 161.0
 margin_right = 552.0
 margin_bottom = 203.0
-theme = ExtResource( 1 )
+focus_neighbour_top = NodePath("../start_btn")
+focus_neighbour_bottom = NodePath("../quit_btn")
+focus_next = NodePath("../quit_btn")
+focus_previous = NodePath("../start_btn")
 text = "Options"
 flat = true
 
@@ -68,19 +76,20 @@ flat = true
 margin_top = 219.0
 margin_right = 552.0
 margin_bottom = 261.0
-theme = ExtResource( 1 )
+focus_neighbour_top = NodePath("../options_btn")
+focus_previous = NodePath("../options_btn")
 text = "Return to Davy Jones' Locker"
 flat = true
 
-[node name="gulls" type="AudioStreamPlayer2D" parent="."]
+[node name="gulls" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
-bus = "Environment"
+bus = "SFX"
 
-[node name="waves" type="AudioStreamPlayer2D" parent="."]
+[node name="waves" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
-bus = "Environment"
+bus = "SFX"
 [connection signal="pressed" from="panel/container/start_btn" to="." method="_on_start_btn_pressed"]
 [connection signal="button_up" from="panel/container/options_btn" to="." method="_on_options_btn_button_up"]
 [connection signal="button_up" from="panel/container/quit_btn" to="." method="_on_quit_btn_button_up"]

@@ -1,11 +1,39 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/menu.theme" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/Freebooter.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/options.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/waves.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/gulls.ogg" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="options" type="Control"]
+anchor_top = -0.00107469
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.998925
+margin_left = -1.16635
+margin_right = -1.16638
 theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_btn" type="Button" parent="."]
+margin_left = 19.0003
+margin_top = 25.0002
+margin_right = 151.0
+margin_bottom = 67.0002
+focus_neighbour_bottom = NodePath("../panel/vbox/sliders_container/bgm_slider")
+focus_next = NodePath("../panel/vbox/sliders_container/bgm_slider")
+text = "RETURN"
+align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -20,31 +48,113 @@ __meta__ = {
 }
 
 [node name="vbox" type="VBoxContainer" parent="panel"]
+anchor_left = 0.05
 anchor_top = 0.1
-anchor_right = 1.0
+anchor_right = 0.95
 anchor_bottom = 0.9
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="title" type="Label" parent="panel/vbox"]
-margin_right = 614.0
-margin_bottom = 50.0
+margin_right = 691.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 1 )
 text = "OPTIONS"
 align = 1
 valign = 1
 
-[node name="bgm_container" type="HBoxContainer" parent="panel/vbox"]
-anchor_left = 0.1
-anchor_right = 0.9
-margin_top = 54.0
+[node name="HSeparator" type="HSeparator" parent="panel/vbox"]
+margin_top = 77.0
+margin_right = 691.0
+margin_bottom = 81.0
 
-[node name="Label" type="Label" parent="panel/vbox/bgm_container"]
+[node name="sliders_container" type="GridContainer" parent="panel/vbox"]
+margin_top = 85.0
+margin_right = 691.0
+margin_bottom = 189.0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 14
+columns = 2
+
+[node name="bgm_label" type="Label" parent="panel/vbox/sliders_container"]
 margin_right = 156.0
 margin_bottom = 50.0
 text = "BGM Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="HSlider" type="HSlider" parent="panel/vbox/bgm_container"]
-anchor_right = 1.0
-margin_left = 160.0
-margin_top = 16.0
+[node name="bgm_slider" type="HSlider" parent="panel/vbox/sliders_container"]
+margin_left = 170.0
+margin_top = 18.0
+margin_right = 691.0
+margin_bottom = 31.0
+focus_neighbour_top = NodePath("../../../../back_btn")
+focus_neighbour_bottom = NodePath("../sfx_slider")
+focus_next = NodePath("../sfx_slider")
+focus_previous = NodePath("../../../../back_btn")
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -72.0
+max_value = 6.0
+
+[node name="sfx_label" type="Label" parent="panel/vbox/sliders_container"]
+margin_top = 54.0
+margin_right = 156.0
+margin_bottom = 104.0
+text = "SFX Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfx_slider" type="HSlider" parent="panel/vbox/sliders_container"]
+margin_left = 170.0
+margin_top = 72.0
+margin_right = 691.0
+margin_bottom = 85.0
+focus_neighbour_top = NodePath("../bgm_slider")
+focus_neighbour_bottom = NodePath("../../subs_btn")
+focus_next = NodePath("../../subs_btn")
+focus_previous = NodePath("../bgm_slider")
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -72.0
+max_value = 6.0
+
+[node name="subs_btn" type="CheckButton" parent="panel/vbox"]
+margin_top = 193.0
+margin_right = 691.0
+margin_bottom = 243.0
+focus_neighbour_top = NodePath("../sliders_container/sfx_slider")
+focus_neighbour_bottom = NodePath("../voice_btn")
+focus_next = NodePath("../voice_btn")
+focus_previous = NodePath("../sliders_container/sfx_slider")
+pressed = true
+text = "Subtitles"
+align = 1
+
+[node name="voice_btn" type="CheckButton" parent="panel/vbox"]
+margin_top = 247.0
+margin_right = 691.0
+margin_bottom = 297.0
+focus_neighbour_top = NodePath("../subs_btn")
+focus_previous = NodePath("../subs_btn")
+pressed = true
+text = "Voiceovers"
+align = 1
+
+[node name="waves" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+bus = "SFX"
+
+[node name="gulls" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "SFX"
+[connection signal="button_up" from="back_btn" to="." method="_on_back_btn_button_up"]
+[connection signal="value_changed" from="panel/vbox/sliders_container/bgm_slider" to="." method="_on_bgm_slider_value_changed"]
+[connection signal="value_changed" from="panel/vbox/sliders_container/sfx_slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="panel/vbox/subs_btn" to="." method="_on_subs_btn_toggled"]
+[connection signal="toggled" from="panel/vbox/voice_btn" to="." method="_on_voice_btn_toggled"]
