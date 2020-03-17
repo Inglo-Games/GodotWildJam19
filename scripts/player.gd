@@ -1,6 +1,7 @@
 extends Ship
 
 onready var cam = $cam
+onready var health_label = $cam/hud_back/label
 
 func _physics_process(delta):
 	
@@ -30,3 +31,9 @@ func _physics_process(delta):
 		fire_cannon(true, true)
 	if(Input.is_action_just_pressed("cannon_starboard") and is_cannon_ready_star):
 		fire_cannon(true, false)
+
+func deal_damage(amount:int):
+	health -= amount
+	health_label.text = "HEALTH: %d" % health
+	if health <= 0:
+		get_tree().change_scene("res://scenes/main_menu.tscn")
