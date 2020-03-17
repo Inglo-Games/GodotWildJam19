@@ -27,8 +27,16 @@ _global_script_class_icons={
 [application]
 
 config/name="GodotWildJam19"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [input]
 
