@@ -1,5 +1,7 @@
 extends Ship
 
+var PauseMenu = preload("res://scenes/pause_menu.tscn")
+
 onready var cam = $cam
 onready var health_label = $cam/hud_back/label
 
@@ -8,6 +10,9 @@ func _physics_process(delta):
 	# Fix HUD in place
 	# TODO: Find a less janky solution
 	cam.rotation = -1 * rotation
+	
+	if(Input.is_action_just_pressed("ui_cancel")):
+		create_pause_popup()
 	
 	if(Input.is_action_just_pressed("raise_sails") and not is_sail_up):
 		raise_sails()
@@ -37,3 +42,9 @@ func deal_damage(amount:int):
 	health_label.text = "HEALTH: %d" % health
 	if health <= 0:
 		get_tree().change_scene("res://scenes/main_menu.tscn")
+
+func create_pause_popup():
+	var pause_menu = PauseMenu.instance()
+	add_child(pause_menu)
+	pause_menu.popup_centered()
+	get_tree().paused = true
