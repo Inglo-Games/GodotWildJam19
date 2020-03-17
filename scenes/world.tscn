@@ -23,10 +23,10 @@ __meta__ = {
 position = Vector2( 2555.53, 1688.5 )
 
 [node name="enemy_ship" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2796.98, 1689.26 )
+position = Vector2( 2802.68, 1715.86 )
+rotation = 0.929422
 
 [node name="waves" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -16.155
 autoplay = true
-bus = "BGM"
+bus = "Environment"
