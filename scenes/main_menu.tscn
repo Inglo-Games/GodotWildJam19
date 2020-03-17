@@ -1,25 +1,28 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/menu.theme" type="Theme" id=1]
 [ext_resource path="res://assets/fonts/PirateJack_92_1.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=3]
 [ext_resource path="res://assets/audio/waves.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/gulls.ogg" type="AudioStream" id=5]
 
 [node name="menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.10803
+margin_bottom = -1.10803
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="title" type="Label" parent="."]
 anchor_top = 0.05
 anchor_right = 1.0
 anchor_bottom = 0.45
 custom_fonts/font = ExtResource( 2 )
-text = "Paradise's Discovery"
+text = "The Incredible Pirate Race"
 align = 1
 valign = 1
 __meta__ = {
@@ -47,32 +50,37 @@ __meta__ = {
 }
 
 [node name="start_btn" type="Button" parent="panel/container"]
-margin_top = 64.0
-margin_right = 449.0
-margin_bottom = 114.0
+margin_top = 103.0
+margin_right = 552.0
+margin_bottom = 145.0
 text = "Set Sail"
 flat = true
 
 [node name="options_btn" type="Button" parent="panel/container"]
-margin_top = 130.0
-margin_right = 449.0
-margin_bottom = 180.0
+margin_top = 161.0
+margin_right = 552.0
+margin_bottom = 203.0
 theme = ExtResource( 1 )
 text = "Options"
 flat = true
 
 [node name="quit_btn" type="Button" parent="panel/container"]
-margin_top = 196.0
-margin_right = 449.0
-margin_bottom = 246.0
+margin_top = 219.0
+margin_right = 552.0
+margin_bottom = 261.0
 theme = ExtResource( 1 )
 text = "Return to Davy Jones' Locker"
 flat = true
 
 [node name="gulls" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Environment"
 
 [node name="waves" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+autoplay = true
+bus = "Environment"
 [connection signal="pressed" from="panel/container/start_btn" to="." method="_on_start_btn_pressed"]
 [connection signal="button_up" from="panel/container/options_btn" to="." method="_on_options_btn_button_up"]
 [connection signal="button_up" from="panel/container/quit_btn" to="." method="_on_quit_btn_button_up"]
