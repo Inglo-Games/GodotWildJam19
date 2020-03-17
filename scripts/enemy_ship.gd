@@ -20,11 +20,11 @@ func _physics_process(delta:float):
 		var direction := Vector2.UP.rotated(rotation)
 		var angle_to_player := direction.angle_to(player.position - position)
 		
-		if (angle_to_player > -1.309 and angle_to_player <= 0.0) \
+		if (angle_to_player > -1.309 and angle_to_player <= -0.1) \
 					or (angle_to_player > 1.833 and angle_to_player <= 3.142):
 			rotation += delta * ROT_PER_SEC
 		elif (angle_to_player < -1.833 and angle_to_player > -3.142) \
-					or (angle_to_player > 0.0 and angle_to_player < 1.309):
+					or (angle_to_player > 0.1 and angle_to_player < 1.309):
 			rotation -= delta * ROT_PER_SEC
 		
 		var player_dot := direction.dot((player.position - position).normalized())
@@ -33,7 +33,11 @@ func _physics_process(delta:float):
 		else:
 			lower_sails()
 		if(is_sail_up):
-			move_and_collide(direction * WIND_SPEED * velocity, false)
+			var collision_info := move_and_collide(direction * WIND_SPEED * velocity, false)
+			if(collision_info and collision_info.collider is Ship):
+				# Deal ramming damage
+				if(player_dot >= 0.9):
+					collision_info.collider.deal_damage(5)
 		
 		# Firing logic
 		for ray in [port_bow_ray, port_side_ray, port_stern_ray]:

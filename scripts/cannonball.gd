@@ -19,7 +19,7 @@ func _ready():
 func _physics_process(_delta):
 	var collision_info := move_and_collide(direction.normalized() * SPEED)
 	if(collision_info):
-		collision_info.collider.deal_damage(3)
+		collision_info.collider.deal_damage(2)
 		timer.stop()
 		$hit.play()
 		$sprite.visible = false
