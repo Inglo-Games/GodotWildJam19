@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/ocean.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/waves.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/enemy_ship.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/islands/01.tscn" type="PackedScene" id=5]
 
 [node name="world" type="Node2D"]
 
@@ -17,13 +18,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="islands" type="Node2D" parent="."]
+
+[node name="island" parent="islands" instance=ExtResource( 5 )]
+position = Vector2( 973.329, 893.616 )
+
 [node name="projectiles" type="Node2D" parent="."]
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy_01" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 3771.53, 2254.48 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2555.53, 1688.5 )
-
-[node name="enemy_ship" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2555.53, 1960.96 )
 
 [node name="waves" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
