@@ -1,6 +1,12 @@
 extends Ship
 
+onready var cam = $cam
+
 func _physics_process(delta):
+	
+	# Fix HUD in place
+	# TODO: Find a less janky solution
+	cam.rotation = -1 * rotation
 	
 	if(Input.is_action_just_pressed("raise_sails") and not is_sail_up):
 		raise_sails()
