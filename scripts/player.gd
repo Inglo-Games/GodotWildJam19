@@ -1,4 +1,5 @@
 extends Ship
+class_name Player
 
 var PauseMenu = preload("res://scenes/pause_menu.tscn")
 

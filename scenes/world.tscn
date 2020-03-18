@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/ocean.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/waves.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/enemy_ship.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/islands/01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/audio/SailsUp.ogg" type="AudioStream" id=6]
+[ext_resource path="res://scenes/islands/00.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/world.gd" type="Script" id=8]
 
 [node name="world" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="ocean_texture" type="TextureRect" parent="."]
 margin_right = 4390.0
@@ -20,8 +24,11 @@ __meta__ = {
 
 [node name="islands" type="Node2D" parent="."]
 
-[node name="island" parent="islands" instance=ExtResource( 5 )]
-position = Vector2( 973.329, 893.616 )
+[node name="start" parent="islands" instance=ExtResource( 7 )]
+position = Vector2( 311.572, 367.495 )
+
+[node name="island01" parent="islands" instance=ExtResource( 5 )]
+position = Vector2( 1473.8, 2061.26 )
 
 [node name="projectiles" type="Node2D" parent="."]
 
@@ -31,9 +38,14 @@ position = Vector2( 973.329, 893.616 )
 position = Vector2( 3771.53, 2254.48 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2555.53, 1688.5 )
+position = Vector2( 462.406, 374.306 )
+rotation = 3.14159
 
 [node name="waves" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
 bus = "SFX"
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "BGM"
