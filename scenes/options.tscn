@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/menu.theme" type="Theme" id=1]
 [ext_resource path="res://assets/fonts/Freebooter.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/options.gd" type="Script" id=3]
-[ext_resource path="res://assets/audio/waves.ogg" type="AudioStream" id=4]
-[ext_resource path="res://assets/audio/gulls.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -13,71 +11,53 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
-[node name="options" type="Control"]
+[node name="options" type="PopupPanel"]
+visible = true
 anchor_top = -0.00107469
 anchor_right = 1.0
 anchor_bottom = 0.998925
-margin_left = -1.16635
-margin_right = -1.16638
+margin_top = 0.773777
+margin_right = -680.0
+margin_bottom = -269.226
+rect_min_size = Vector2( 600, 450 )
 theme = ExtResource( 1 )
+popup_exclusive = true
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="back_btn" type="Button" parent="."]
-margin_left = 19.0003
-margin_top = 25.0002
-margin_right = 151.0
-margin_bottom = 67.0002
-focus_neighbour_bottom = NodePath("../panel/vbox/sliders_container/bgm_slider")
-focus_next = NodePath("../panel/vbox/sliders_container/bgm_slider")
-text = "RETURN"
-align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="panel" type="Panel" parent="."]
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.8
-anchor_bottom = 0.8
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="vbox" type="VBoxContainer" parent="panel"]
+[node name="vbox" type="VBoxContainer" parent="."]
 anchor_left = 0.05
 anchor_top = 0.1
 anchor_right = 0.95
 anchor_bottom = 0.9
+margin_left = -18.8963
+margin_top = 9.52975
+margin_right = 20.7469
+margin_bottom = -2.0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title" type="Label" parent="panel/vbox"]
-margin_right = 691.0
-margin_bottom = 73.0
+[node name="title" type="Label" parent="vbox"]
+margin_top = 6.0
+margin_right = 579.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 1 )
 text = "OPTIONS"
 align = 1
-valign = 1
 
-[node name="HSeparator" type="HSeparator" parent="panel/vbox"]
-margin_top = 77.0
-margin_right = 691.0
-margin_bottom = 81.0
-
-[node name="sliders_container" type="GridContainer" parent="panel/vbox"]
-margin_top = 85.0
-margin_right = 691.0
-margin_bottom = 189.0
+[node name="sliders_container" type="GridContainer" parent="vbox"]
+margin_top = 83.0
+margin_right = 579.0
+margin_bottom = 187.0
 custom_constants/vseparation = 4
 custom_constants/hseparation = 14
 columns = 2
 
-[node name="bgm_label" type="Label" parent="panel/vbox/sliders_container"]
+[node name="bgm_label" type="Label" parent="vbox/sliders_container"]
 margin_right = 156.0
 margin_bottom = 50.0
 text = "BGM Level"
@@ -85,10 +65,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bgm_slider" type="HSlider" parent="panel/vbox/sliders_container"]
+[node name="bgm_slider" type="HSlider" parent="vbox/sliders_container"]
 margin_left = 170.0
 margin_top = 18.0
-margin_right = 691.0
+margin_right = 579.0
 margin_bottom = 31.0
 focus_neighbour_top = NodePath("../../../../back_btn")
 focus_neighbour_bottom = NodePath("../sfx_slider")
@@ -99,7 +79,7 @@ size_flags_vertical = 4
 min_value = -72.0
 max_value = 6.0
 
-[node name="sfx_label" type="Label" parent="panel/vbox/sliders_container"]
+[node name="sfx_label" type="Label" parent="vbox/sliders_container"]
 margin_top = 54.0
 margin_right = 156.0
 margin_bottom = 104.0
@@ -108,10 +88,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sfx_slider" type="HSlider" parent="panel/vbox/sliders_container"]
+[node name="sfx_slider" type="HSlider" parent="vbox/sliders_container"]
 margin_left = 170.0
 margin_top = 72.0
-margin_right = 691.0
+margin_right = 579.0
 margin_bottom = 85.0
 focus_neighbour_top = NodePath("../bgm_slider")
 focus_neighbour_bottom = NodePath("../../subs_btn")
@@ -122,10 +102,10 @@ size_flags_vertical = 4
 min_value = -72.0
 max_value = 6.0
 
-[node name="subs_btn" type="CheckButton" parent="panel/vbox"]
-margin_top = 193.0
-margin_right = 691.0
-margin_bottom = 243.0
+[node name="subs_btn" type="CheckButton" parent="vbox"]
+margin_top = 191.0
+margin_right = 579.0
+margin_bottom = 241.0
 focus_neighbour_top = NodePath("../sliders_container/sfx_slider")
 focus_neighbour_bottom = NodePath("../voice_btn")
 focus_next = NodePath("../voice_btn")
@@ -134,27 +114,23 @@ pressed = true
 text = "Subtitles"
 align = 1
 
-[node name="voice_btn" type="CheckButton" parent="panel/vbox"]
-margin_top = 247.0
-margin_right = 691.0
-margin_bottom = 297.0
+[node name="voice_btn" type="CheckButton" parent="vbox"]
+margin_top = 245.0
+margin_right = 579.0
+margin_bottom = 295.0
 focus_neighbour_top = NodePath("../subs_btn")
 focus_previous = NodePath("../subs_btn")
 pressed = true
 text = "Voiceovers"
 align = 1
 
-[node name="waves" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-autoplay = true
-bus = "SFX"
-
-[node name="gulls" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-autoplay = true
-bus = "SFX"
-[connection signal="button_up" from="back_btn" to="." method="_on_back_btn_button_up"]
-[connection signal="value_changed" from="panel/vbox/sliders_container/bgm_slider" to="." method="_on_bgm_slider_value_changed"]
-[connection signal="value_changed" from="panel/vbox/sliders_container/sfx_slider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="toggled" from="panel/vbox/subs_btn" to="." method="_on_subs_btn_toggled"]
-[connection signal="toggled" from="panel/vbox/voice_btn" to="." method="_on_voice_btn_toggled"]
+[node name="back_btn" type="Button" parent="vbox"]
+margin_top = 299.0
+margin_right = 579.0
+margin_bottom = 341.0
+text = "RETURN"
+[connection signal="value_changed" from="vbox/sliders_container/bgm_slider" to="." method="_on_bgm_slider_value_changed"]
+[connection signal="value_changed" from="vbox/sliders_container/sfx_slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="vbox/subs_btn" to="." method="_on_subs_btn_toggled"]
+[connection signal="toggled" from="vbox/voice_btn" to="." method="_on_voice_btn_toggled"]
+[connection signal="button_up" from="vbox/back_btn" to="." method="_on_back_btn_button_up"]
