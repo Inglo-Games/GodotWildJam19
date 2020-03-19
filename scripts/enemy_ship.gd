@@ -1,6 +1,7 @@
 extends Ship
 
-const CHASE_THRESHOLD := 600.0
+const CHASE_THRESHOLD := 600.0		# Distance in pixels the ship will chase player
+const CHASE_TIMER := 15.0			# Time in seconds before sending battle_over signal
 
 onready var player = get_node("/root/world/player")
 onready var port_stern_ray = $port_stern_ray
@@ -9,12 +10,21 @@ onready var port_side_ray = $port_ray
 onready var star_stern_ray = $star_stern_ray
 onready var star_bow_ray = $star_bow_ray
 onready var star_side_ray = $star_ray
+onready var timer = $Timer
+
+var in_battle := false
 
 func _physics_process(delta:float):
 	
 	# Only do anything if player is in range
 	var dist_to_player := global_position.distance_to(player.global_position)
 	if dist_to_player <= CHASE_THRESHOLD:
+		
+		if(not in_battle and timer.is_stopped()):
+			in_battle = true
+			emit_signal("battle_started")
+		elif(not timer.is_stopped()):
+			timer.stop()
 		
 		# Movement logic
 		var direction := Vector2.UP.rotated(rotation)
@@ -46,3 +56,12 @@ func _physics_process(delta:float):
 		for ray in [star_bow_ray, star_side_ray, star_stern_ray]:
 			if(ray.is_colliding() and is_cannon_ready_star):
 				fire_cannon(false, false)
+	
+	# If player isn't in chase distance...
+	else:
+		if(in_battle and timer.is_stopped()):
+			timer.start(CHASE_TIMER)
+
+func _on_chase_timer_ended():
+	in_battle = false
+	emit_signal("battle_ended")

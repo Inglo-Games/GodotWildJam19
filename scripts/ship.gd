@@ -1,6 +1,9 @@
 extends KinematicBody2D
 class_name Ship
 
+signal battle_started
+signal battle_ended
+
 const ROT_PER_SEC := 0.48  # Still rotation speed in radians/second
 const WIND_SPEED := 3.0    # Max movement speed in units/second
 const RELOAD_TIME := 2.5   # Time to reload cannons in seconds
@@ -60,5 +63,6 @@ func lower_sails():
 func deal_damage(amount:int):
 	health -= amount
 	if health <= 0:
+		emit_signal("battle_ended")
 		queue_free()
 
