@@ -12,6 +12,8 @@ func _ready():
 	for ship in $enemies.get_children():
 		ship.connect("battle_started", self, "_on_battle_started")
 		ship.connect("battle_ended", self, "_on_battle_ended")
+	for island in $islands.get_children():
+		island.connect("line_triggered", gui, "_on_play_line")
 
 func _process(_delta):
 	if(Input.is_action_just_pressed("ui_cancel")):

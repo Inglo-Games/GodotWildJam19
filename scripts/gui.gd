@@ -1,10 +1,50 @@
 extends Control
 
+const DIALOGUE_LINES := {
+	"intro_01": "Welcome aboard Captain!  All crew is accounted for and we are ready to raise the sails on your orders.",
+	"intro_02": "The boys just finish cleaning the cannons Captain.  How about ye fire one, see how they are?",
+	"out_of_bounds": "Captain, turn around!",
+	"clue_01": "Our scouts found a clue on this island: \"Sail east, over the C, if you find the F you've gone too far\"",
+	"clue_02": "Another clue: \"The gang of three keeps watch above the keep\"",
+	"clue_03": "",
+	"island_01": "A fine island you've discovered, but alas it be not the one for which we search.",
+	"island_02": "How many more clues could there be?",
+	"island_03": "I just might build a shack on this island, after we find that treasure!",
+	"island_04": "",
+	"final_battle": "They may have gotten here first, but the only thing they'll discover is their grave!",
+	"final_victory": "Congratulations Captain!  That treasure is ours!"
+}
+
 onready var subs = $subtitles
+onready var voice = $voiceover
 
 func _on_health_changed(amount:int):
 	$health_back/health_label.text = "HEALTH: %d" % amount
 
-func display_subtitles(line:String):
-	subs.text = line
-	subs.visible = true
+func _on_play_line(line:String):
+	
+	if(ProjectSettings.get_setting("Accessibility/subtitles")):
+		if DIALOGUE_LINES.has(line):
+			subs.text = DIALOGUE_LINES[line]
+			subs.visible = true
+	
+	var audio_file_name := "res://assets/audio/voices/%s.wav" % line
+	if(ResourceLoader.exists(audio_file_name)):
+		voice.stream = load(audio_file_name)
+	
+		# Even if voices are off, we still play the file to keep the timing of the
+		# subtitles
+		if(ProjectSettings.get_setting("Accessibility/voices")):
+			voice.volume_db = -64.0
+		else:
+			voice.volume_db = 0.0
+		voice.play()
+		
+		# Cleanup after done
+		yield(voice, "finished")
+		subs.visible = false
+	
+	# If the audio file doesn't exist...
+	else:
+		yield(get_tree().create_timer(8.0), "timeout")
+		subs.visible = false
