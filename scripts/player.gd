@@ -1,18 +1,15 @@
 extends Ship
 class_name Player
 
+signal health_changed
+
 var PauseMenu = preload("res://scenes/pause_menu.tscn")
 
 onready var cam = $cam
-onready var health_label = $cam/hud_back/label
 
 var is_immune := false
 
 func _physics_process(delta):
-	
-	# Fix HUD in place
-	# TODO: Find a less janky solution
-	cam.rotation = -1 * rotation
 	
 	if(Input.is_action_just_pressed("ui_cancel")):
 		create_pause_popup()
@@ -47,7 +44,7 @@ func deal_damage(amount:int):
 	if(not is_immune):
 		is_immune = true
 		health -= amount
-		health_label.text = "HEALTH: %d" % health
+		emit_signal("health_changed", health)
 		if(health <= 0):
 			get_tree().change_scene("res://scenes/main_menu.tscn")
 		yield(get_tree().create_timer(1.5), "timeout")

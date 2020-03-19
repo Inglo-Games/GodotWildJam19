@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/menu.theme" type="Theme" id=1]
+[ext_resource path="res://assets/images/parchment_small.png" type="Texture" id=2]
+[ext_resource path="res://scripts/gui.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.168627 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="gui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_back" type="Sprite" parent="."]
+position = Vector2( 154.712, 47.4685 )
+texture = ExtResource( 2 )
+
+[node name="health_label" type="Label" parent="health_back"]
+margin_left = -83.0
+margin_top = -45.0
+margin_right = 89.0
+margin_bottom = 40.0
+text = "HEALTH: 5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="subtitles" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+margin_right = 8.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_styles/normal = SubResource( 1 )
+text = "Subtitles"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

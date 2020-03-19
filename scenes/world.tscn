@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/ocean.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/islands/00.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/world.gd" type="Script" id=8]
 [ext_resource path="res://scenes/islands/02.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/gui.tscn" type="PackedScene" id=10]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 8 )
@@ -44,6 +45,10 @@ position = Vector2( 3771.53, 2254.48 )
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 462.406, 374.306 )
 rotation = 3.14159
+
+[node name="gui_layer" type="CanvasLayer" parent="."]
+
+[node name="gui" parent="gui_layer" instance=ExtResource( 10 )]
 
 [node name="waves" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
