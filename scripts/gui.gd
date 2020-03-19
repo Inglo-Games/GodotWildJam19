@@ -2,10 +2,12 @@ extends Control
 
 const DIALOGUE_LINES := {
 	"intro_01": "Welcome aboard Captain!  All crew is accounted for and we are ready to raise the sails on your orders.",
-	"intro_02": "The boys just finish cleaning the cannons Captain.  How about ye fire one, see how they are?",
+	"intro_02": "The boys just finished cleaning the cannons Captain.  How about ye fire one, see how they are?",
+	"tut_01": "Raise sails: W\nLower sails: S\nTurn port: <-\nTurn starboard: ->",
+	"tut_02": "Fire port side cannon: A\nFire starboard side cannon: D",
 	"out_of_bounds": "Captain, turn around!",
 	"clue_01": "Our scouts found a clue on this island: \"Sail east, over the C, if you find the F you've gone too far\"",
-	"clue_02": "Another clue: \"The gang of three keeps watch above the keep\"",
+	"clue_02": "A clue: \"The gang of three keeps watch above the keep\"",
 	"clue_03": "",
 	"island_01": "A fine island you've discovered, but alas it be not the one for which we search.",
 	"island_02": "How many more clues could there be?",
@@ -31,7 +33,7 @@ func _on_play_line(line:String):
 	var audio_file_name := "res://assets/audio/voices/%s.wav" % line
 	if(ResourceLoader.exists(audio_file_name)):
 		voice.stream = load(audio_file_name)
-	
+		
 		# Even if voices are off, we still play the file to keep the timing of the
 		# subtitles
 		if(ProjectSettings.get_setting("Accessibility/voices")):
@@ -48,3 +50,15 @@ func _on_play_line(line:String):
 	else:
 		yield(get_tree().create_timer(8.0), "timeout")
 		subs.visible = false
+	
+		# Display tutorial lines after the intro lines
+		if(line == "intro_01"):
+			subs.text = DIALOGUE_LINES["tut_01"]
+			subs.visible = true
+			yield(get_tree().create_timer(8.0), "timeout")
+			subs.visible = false
+		elif(line == "intro_02"):
+			subs.text = DIALOGUE_LINES["tut_02"]
+			subs.visible = true
+			yield(get_tree().create_timer(8.0), "timeout")
+			subs.visible = false
