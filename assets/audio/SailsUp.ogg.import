@@ -12,4 +12,4 @@ dest_files=[ "res://.import/SailsUp.ogg-f7f5564fa233b1a7e916b832c027fa21.oggstr"
 [params]
 
 loop=true
-loop_offset=0
+loop_offset=7.68

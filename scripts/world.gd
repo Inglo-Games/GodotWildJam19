@@ -1,6 +1,9 @@
 extends Node2D
 
+var PauseMenu = preload("res://scenes/pause_menu.tscn")
+
 onready var gui = $gui_layer/gui
+onready var tween := $Tween
 
 func _ready():
 	
@@ -10,10 +13,19 @@ func _ready():
 		ship.connect("battle_started", self, "_on_battle_started")
 		ship.connect("battle_ended", self, "_on_battle_ended")
 
+func _process(_delta):
+	if(Input.is_action_just_pressed("ui_cancel")):
+		create_pause_popup()
+
+func create_pause_popup():
+	var pause_menu = PauseMenu.instance()
+	gui.add_child(pause_menu)
+	pause_menu.popup_centered()
+	get_tree().paused = true
+
 # Fade out regular BGM and fade in battle music
 func _on_battle_started():
-	var tween = Tween.new()
-	tween.interpolate_property($bgm, "volume", 0.0, -64.0, 1.0)
+	tween.interpolate_property($bgm, "volume_db", 0.0, -64.0, 1.0)
 	tween.start()
 	yield(tween, "tween_all_completed")
 	$battle.play()
@@ -22,8 +34,7 @@ func _on_battle_started():
 
 # Change from battle music to BGM
 func _on_battle_ended():
-	var tween = Tween.new()
-	tween.interpolate_property($battle, "volume", 0.0, -64.0, 1.0)
+	tween.interpolate_property($battle, "volume_db", 0.0, -64.0, 1.0)
 	tween.start()
 	yield(tween, "tween_all_completed")
 	$bgm.play()
