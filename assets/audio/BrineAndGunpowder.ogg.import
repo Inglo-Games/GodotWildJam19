@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BrineAndGunpowder.ogg-4a0b3927a1c7f0ecc6b22fedcfaff5e9.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/BrineAndGunpowder.ogg"
+dest_files=[ "res://.import/BrineAndGunpowder.ogg-4a0b3927a1c7f0ecc6b22fedcfaff5e9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=12.0
