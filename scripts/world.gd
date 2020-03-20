@@ -14,6 +14,7 @@ func _ready():
 		ship.connect("battle_ended", self, "_on_battle_ended")
 	for island in $islands.get_children():
 		island.connect("line_triggered", gui, "_on_play_line")
+	$islands/island8/Area2D2.connect("line_triggered", gui, "_on_play_line")
 
 func _process(_delta):
 	if(Input.is_action_just_pressed("ui_cancel")):

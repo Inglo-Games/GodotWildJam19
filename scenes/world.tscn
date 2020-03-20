@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/ocean.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/islands/04.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/islands/07.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/islands/06.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/islands/08.tscn" type="PackedScene" id=17]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 8 )
@@ -62,6 +63,10 @@ subtitle_line = "island_04"
 position = Vector2( 14459, 4670.38 )
 subtitle_line = "clue_02"
 
+[node name="island8" parent="islands" instance=ExtResource( 17 )]
+position = Vector2( 9916.48, 18050.2 )
+subtitle_line = "island_05"
+
 [node name="projectiles" type="Node2D" parent="."]
 
 [node name="enemies" type="Node2D" parent="."]
@@ -70,7 +75,7 @@ subtitle_line = "clue_02"
 position = Vector2( 1164.55, 2915.26 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 371.965, 471.094 )
+position = Vector2( 7719.41, 18025.7 )
 rotation = 1.5708
 
 [node name="gui_layer" type="CanvasLayer" parent="."]
