@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/ocean.png" type="Texture" id=2]
@@ -14,13 +14,15 @@
 [ext_resource path="res://scenes/islands/03.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/islands/05.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/islands/04.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/islands/07.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/islands/06.tscn" type="PackedScene" id=16]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 8 )
 
 [node name="ocean_texture" type="TextureRect" parent="."]
-margin_right = 53950.0
-margin_bottom = 30826.0
+margin_right = 27337.0
+margin_bottom = 20314.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 2
@@ -33,20 +35,32 @@ __meta__ = {
 [node name="start" parent="islands" instance=ExtResource( 7 )]
 position = Vector2( 340.132, 323.068 )
 
-[node name="island" parent="islands" instance=ExtResource( 5 )]
-position = Vector2( 2466.89, 868.161 )
+[node name="island1" parent="islands" instance=ExtResource( 5 )]
+position = Vector2( 9320.62, 1178.13 )
 
 [node name="island2" parent="islands" instance=ExtResource( 9 )]
 position = Vector2( 4017.87, 4207.56 )
+subtitle_line = "clue_01"
 
 [node name="island3" parent="islands" instance=ExtResource( 12 )]
 position = Vector2( 21192.9, 2612.52 )
+subtitle_line = "island_02"
 
 [node name="island4" parent="islands" instance=ExtResource( 14 )]
-position = Vector2( 15524.6, 8824.96 )
+position = Vector2( 25193.2, 9546.5 )
+subtitle_line = "island_03"
 
 [node name="island5" parent="islands" instance=ExtResource( 13 )]
-position = Vector2( 11544.1, 6445.86 )
+position = Vector2( 11155.6, 11143.9 )
+subtitle_line = "clue_03"
+
+[node name="island6" parent="islands" instance=ExtResource( 16 )]
+position = Vector2( 3041.46, 10394.1 )
+subtitle_line = "island_04"
+
+[node name="island7" parent="islands" instance=ExtResource( 15 )]
+position = Vector2( 14459, 4670.38 )
+subtitle_line = "clue_02"
 
 [node name="projectiles" type="Node2D" parent="."]
 
