@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/ocean.png" type="Texture" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://scenes/islands/02.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/gui.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/audio/BrineAndGunpowder.ogg" type="AudioStream" id=11]
+[ext_resource path="res://scenes/islands/03.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/islands/05.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/islands/04.tscn" type="PackedScene" id=14]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 8 )
@@ -28,13 +31,22 @@ __meta__ = {
 [node name="islands" type="Node2D" parent="."]
 
 [node name="start" parent="islands" instance=ExtResource( 7 )]
-position = Vector2( 311.572, 367.495 )
+position = Vector2( 340.132, 323.068 )
 
 [node name="island" parent="islands" instance=ExtResource( 5 )]
 position = Vector2( 2466.89, 868.161 )
 
 [node name="island2" parent="islands" instance=ExtResource( 9 )]
 position = Vector2( 4017.87, 4207.56 )
+
+[node name="island3" parent="islands" instance=ExtResource( 12 )]
+position = Vector2( 21192.9, 2612.52 )
+
+[node name="island4" parent="islands" instance=ExtResource( 14 )]
+position = Vector2( 15524.6, 8824.96 )
+
+[node name="island5" parent="islands" instance=ExtResource( 13 )]
+position = Vector2( 11544.1, 6445.86 )
 
 [node name="projectiles" type="Node2D" parent="."]
 
@@ -44,12 +56,16 @@ position = Vector2( 4017.87, 4207.56 )
 position = Vector2( 1164.55, 2915.26 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 462.406, 374.306 )
-rotation = 3.14159
+position = Vector2( 371.965, 471.094 )
+rotation = 1.5708
 
 [node name="gui_layer" type="CanvasLayer" parent="."]
 
 [node name="gui" parent="gui_layer" instance=ExtResource( 10 )]
+margin_left = 30.147
+margin_top = -28.5603
+margin_right = 30.147
+margin_bottom = -28.5603
 
 [node name="Tween" type="Tween" parent="."]
 
