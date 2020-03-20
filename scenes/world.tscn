@@ -75,7 +75,7 @@ subtitle_line = "island_05"
 position = Vector2( 1164.55, 2915.26 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 7719.41, 18025.7 )
+position = Vector2( 410.651, 465.018 )
 rotation = 1.5708
 
 [node name="gui_layer" type="CanvasLayer" parent="."]

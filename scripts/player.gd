@@ -2,6 +2,7 @@ extends Ship
 class_name Player
 
 signal health_changed
+signal game_over
 
 onready var cam = $cam
 
@@ -41,6 +42,7 @@ func deal_damage(amount:int):
 		health -= amount
 		emit_signal("health_changed", health)
 		if(health <= 0):
-			get_tree().change_scene("res://scenes/main_menu.tscn")
+			emit_signal("game_over")
+			get_tree().paused = true
 		yield(get_tree().create_timer(1.5), "timeout")
 		is_immune = false

@@ -9,6 +9,7 @@ func _ready():
 	
 	$islands/start.connect("left_start", $bgm, "play")
 	$player.connect("health_changed", gui, "_on_health_changed")
+	$player.connect("game_over", gui, "_on_game_over")
 	for ship in $enemies.get_children():
 		ship.connect("battle_started", self, "_on_battle_started")
 		ship.connect("battle_ended", self, "_on_battle_ended")

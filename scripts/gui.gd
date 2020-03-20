@@ -3,7 +3,7 @@ extends Control
 const DIALOGUE_LINES := {
 	"intro_01": "Welcome aboard Captain!  All crew is accounted for and we are ready to raise the sails on your orders.",
 	"intro_02": "The boys just finished cleaning the cannons Captain.  How about ye fire one, see how they are?",
-	"tut_01": "Raise sails: W\nLower sails: S\nTurn port: <-\nTurn starboard: ->",
+	"tut_01": "Raise sails: Up\nLower sails: Down\nTurn port: Left\nTurn starboard: Right",
 	"tut_02": "Fire port side cannon: A\nFire starboard side cannon: D",
 	"out_of_bounds": "Captain, turn around!",
 	"clue_01": "Our scouts found a clue on this island: \"Sail east, over the C, if you find the F you've gone too far\"",
@@ -13,6 +13,7 @@ const DIALOGUE_LINES := {
 	"island_02": "How many more clues could there be?",
 	"island_03": "I just might build a shack on this island, after we find that treasure!",
 	"island_04": "",
+	"island_05": "That looks like the right island!  We're so close Captain!",
 	"final_battle": "They may have gotten here first, but the only thing they'll discover is their grave!",
 	"final_victory": "Congratulations Captain!  That treasure is ours!"
 }
@@ -62,3 +63,16 @@ func _on_play_line(line:String):
 			subs.visible = true
 			yield(get_tree().create_timer(8.0), "timeout")
 			subs.visible = false
+		elif(line == "final_victory"):
+			_on_game_won()
+
+func _on_game_over():
+	$game_over_panel.popup_centered()
+
+func _on_game_won():
+	$victory_panel.popup_centered()
+
+func _on_menu_btn_button_up():
+	get_tree().paused = false
+	queue_free()
+	get_tree().change_scene("res://scenes/main_menu.tscn")
