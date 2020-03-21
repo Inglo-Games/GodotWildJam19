@@ -52,9 +52,9 @@ __meta__ = {
 }
 
 [node name="start_btn" type="Button" parent="panel/container"]
-margin_top = 103.0
+margin_top = 76.0
 margin_right = 552.0
-margin_bottom = 145.0
+margin_bottom = 117.0
 focus_neighbour_bottom = NodePath("../options_btn")
 focus_next = NodePath("../options_btn")
 shortcut_in_tooltip = false
@@ -62,9 +62,9 @@ text = "Set Sail"
 flat = true
 
 [node name="options_btn" type="Button" parent="panel/container"]
-margin_top = 161.0
+margin_top = 133.0
 margin_right = 552.0
-margin_bottom = 203.0
+margin_bottom = 174.0
 focus_neighbour_top = NodePath("../start_btn")
 focus_neighbour_bottom = NodePath("../quit_btn")
 focus_next = NodePath("../quit_btn")
@@ -72,10 +72,16 @@ focus_previous = NodePath("../start_btn")
 text = "Options"
 flat = true
 
-[node name="quit_btn" type="Button" parent="panel/container"]
-margin_top = 219.0
+[node name="credits_btn" type="Button" parent="panel/container"]
+margin_top = 190.0
 margin_right = 552.0
-margin_bottom = 261.0
+margin_bottom = 231.0
+text = "Meet the Crew"
+
+[node name="quit_btn" type="Button" parent="panel/container"]
+margin_top = 247.0
+margin_right = 552.0
+margin_bottom = 288.0
 focus_neighbour_top = NodePath("../options_btn")
 focus_previous = NodePath("../options_btn")
 text = "Return to Davy Jones' Locker"
@@ -92,4 +98,5 @@ autoplay = true
 bus = "SFX"
 [connection signal="pressed" from="panel/container/start_btn" to="." method="_on_start_btn_pressed"]
 [connection signal="button_up" from="panel/container/options_btn" to="." method="_on_options_btn_button_up"]
+[connection signal="button_up" from="panel/container/credits_btn" to="." method="_on_credits_btn_button_up"]
 [connection signal="button_up" from="panel/container/quit_btn" to="." method="_on_quit_btn_button_up"]
