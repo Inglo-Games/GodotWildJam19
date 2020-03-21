@@ -69,7 +69,7 @@ focus_neighbour_top = NodePath("../start_btn")
 focus_neighbour_bottom = NodePath("../quit_btn")
 focus_next = NodePath("../quit_btn")
 focus_previous = NodePath("../start_btn")
-text = "Options"
+text = "Configure Cargo"
 flat = true
 
 [node name="credits_btn" type="Button" parent="panel/container"]

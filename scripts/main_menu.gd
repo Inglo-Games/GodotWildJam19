@@ -5,6 +5,10 @@ onready var CreditsMenu = preload("res://scenes/credits.tscn")
 
 func _ready():
 	$panel/container/start_btn.grab_focus()
+	
+	# Don't show the quit button if in-browser
+	if(OS.get_name() == "HTML5"):
+		$panel/container/quit_btn.visible = false
 
 func _on_start_btn_pressed():
 	get_tree().change_scene("res://scenes/world.tscn")
