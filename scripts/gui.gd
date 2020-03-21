@@ -2,20 +2,20 @@ extends Control
 
 const DIALOGUE_LINES := {
 	"intro_01": "Welcome aboard Captain!  All crew is accounted for and we are ready to raise the sails on your orders.",
-	"intro_02": "The boys just finished cleaning the cannons Captain.  How about ye fire one, see how they are?",
+	"intro_02": "The boys just finished cleaning up the cannons Captain.  How about ye fire one, see how they are?",
 	"tut_01": "Raise sails: Up\nLower sails: Down\nTurn port: Left\nTurn starboard: Right",
 	"tut_02": "Fire port side cannon: A\nFire starboard side cannon: D",
 	"out_of_bounds": "Captain, turn around!",
 	"clue_01": "Our scouts found a clue on this island: \"Sail east, over the C, if you find the F you've gone too far\"",
-	"clue_02": "A clue: \"The gang of three keeps watch above the keep\"",
-	"clue_03": "",
+	"clue_02": "A clue: \"The gang of three keeps watch over the keep\"",
+	"clue_03": "Another clue! \"Stay in the south, but keep your eyes to the west\"",
 	"island_01": "A fine island you've discovered, but alas it be not the one for which we search.",
 	"island_02": "How many more clues could there be?",
 	"island_03": "I just might build a shack on this island, after we find that treasure!",
-	"island_04": "",
+	"island_04": "That island is almost as green as old Ireland!",
 	"island_05": "That looks like the right island!  We're so close Captain!",
 	"final_battle": "They may have gotten here first, but the only thing they'll discover is their grave!",
-	"final_victory": "Congratulations Captain!  That treasure is ours!"
+	"final_victory": "Well fought Captain!  That treasure is ours!"
 }
 
 onready var subs = $subtitles
