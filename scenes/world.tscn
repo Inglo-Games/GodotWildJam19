@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/ocean.png" type="Texture" id=2]
@@ -17,19 +17,78 @@
 [ext_resource path="res://scenes/islands/07.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/islands/06.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/islands/08.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/shaders/ocean.shader" type="Shader" id=18]
+[ext_resource path="res://assets/shaders/water_normal.png" type="Texture" id=19]
+[ext_resource path="res://assets/shaders/light.png" type="Texture" id=20]
+[ext_resource path="res://scripts/oob_trigger.gd" type="Script" id=21]
+[ext_resource path="res://scripts/tut_2_trigger.gd" type="Script" id=22]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 18 )
+shader_param/tile_factor = 5.0
+shader_param/time_factor = 0.02
+shader_param/normal_texture = ExtResource( 19 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 3416.5
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 15000, 100 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 15000, 100 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 100, 12000 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 100, 12000 )
 
 [node name="world" type="Node2D"]
 script = ExtResource( 8 )
 
-[node name="ocean_texture" type="TextureRect" parent="."]
-margin_right = 27337.0
-margin_bottom = 20314.0
+[node name="ocean" type="Sprite" parent="."]
+material = SubResource( 1 )
+scale = Vector2( 36.3418, 29.1295 )
 texture = ExtResource( 2 )
-expand = true
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+centered = false
+
+[node name="voiceover_areas" type="Node2D" parent="."]
+
+[node name="tut_2_trigger" type="Area2D" parent="voiceover_areas"]
+script = ExtResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="voiceover_areas/tut_2_trigger"]
+shape = SubResource( 2 )
+
+[node name="oob_trigger_01" type="Area2D" parent="voiceover_areas"]
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="voiceover_areas/oob_trigger_01"]
+position = Vector2( 14500, -100 )
+shape = SubResource( 3 )
+
+[node name="oob_trigger_02" type="Area2D" parent="voiceover_areas"]
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="voiceover_areas/oob_trigger_02"]
+position = Vector2( 14500, 23400 )
+shape = SubResource( 4 )
+
+[node name="oob_trigger_03" type="Area2D" parent="voiceover_areas"]
+position = Vector2( 29.5283, 0 )
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="voiceover_areas/oob_trigger_03"]
+position = Vector2( -100, 11465.1 )
+shape = SubResource( 5 )
+
+[node name="oob_trigger_04" type="Area2D" parent="voiceover_areas"]
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="voiceover_areas/oob_trigger_04"]
+position = Vector2( 29143.8, 11561.6 )
+shape = SubResource( 6 )
 
 [node name="islands" type="Node2D" parent="."]
 
@@ -72,7 +131,7 @@ subtitle_line = "island_05"
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="enemy_01" parent="enemies" instance=ExtResource( 4 )]
-position = Vector2( 1164.55, 2915.26 )
+position = Vector2( 6238.05, 3343.24 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 410.651, 465.018 )
@@ -103,3 +162,9 @@ bus = "BGM"
 pause_mode = 2
 stream = ExtResource( 11 )
 bus = "BGM"
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 14500.1, 11691.4 )
+scale = Vector2( 113.644, 90.8963 )
+texture = ExtResource( 20 )
+mode = 2

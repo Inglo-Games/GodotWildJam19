@@ -1,5 +1,7 @@
 extends Node2D
 
+signal line_triggered
+
 var PauseMenu = preload("res://scenes/pause_menu.tscn")
 
 onready var gui = $gui_layer/gui
@@ -16,6 +18,11 @@ func _ready():
 		ship.connect("battle_ended", self, "_on_battle_ended")
 	for island in $islands.get_children():
 		island.connect("line_triggered", gui, "_on_play_line")
+	$voiceover_areas/oob_trigger_01.connect("line_triggered", gui, "_on_play_line")
+	$voiceover_areas/oob_trigger_02.connect("line_triggered", gui, "_on_play_line")
+	$voiceover_areas/oob_trigger_03.connect("line_triggered", gui, "_on_play_line")
+	$voiceover_areas/oob_trigger_04.connect("line_triggered", gui, "_on_play_line")
+	$voiceover_areas/tut_2_trigger.connect("line_triggered", gui, "_on_play_line")
 	$islands/island8/Area2D2.connect("line_triggered", gui, "_on_play_line")
 
 func _process(_delta):
