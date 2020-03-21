@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/menu.theme" type="Theme" id=1]
 [ext_resource path="res://assets/images/parchment_small.png" type="Texture" id=2]
 [ext_resource path="res://scripts/gui.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/Freebooter_25_1.tres" type="DynamicFont" id=4]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 0.168627 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -14,6 +15,8 @@ corner_radius_bottom_left = 8
 [node name="gui" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.513367
+margin_bottom = -0.513367
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -21,17 +24,35 @@ __meta__ = {
 }
 
 [node name="health_back" type="Sprite" parent="."]
-position = Vector2( 154.712, 47.4685 )
+position = Vector2( 154.712, 64 )
 texture = ExtResource( 2 )
 
-[node name="health_label" type="Label" parent="health_back"]
-margin_left = -83.0
-margin_top = -45.0
-margin_right = 89.0
-margin_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="health_back"]
+margin_left = -84.0
+margin_top = -47.0
+margin_right = 91.0
+margin_bottom = 57.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_label" type="Label" parent="health_back/VBoxContainer"]
+margin_right = 175.0
+margin_bottom = 49.0
 text = "HEALTH: 5"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coords_label" type="Label" parent="health_back/VBoxContainer"]
+margin_top = 53.0
+margin_right = 175.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 4 )
+text = "13.12 N   72.48 W"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,7 +64,7 @@ anchor_right = 0.8
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
-custom_styles/normal = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
 text = "Subtitles"
 align = 1
 autowrap = true
@@ -79,7 +100,7 @@ __meta__ = {
 }
 
 [node name="label" type="Label" parent="game_over_panel/VBoxContainer"]
-margin_top = 51.0
+margin_top = 52.0
 margin_right = 279.0
 margin_bottom = 101.0
 text = "GAME OVER"
@@ -88,7 +109,7 @@ align = 1
 [node name="menu_btn" type="Button" parent="game_over_panel/VBoxContainer"]
 margin_top = 105.0
 margin_right = 279.0
-margin_bottom = 147.0
+margin_bottom = 146.0
 text = "Back to Menu"
 flat = true
 __meta__ = {

@@ -22,7 +22,12 @@ onready var subs = $subtitles
 onready var voice = $voiceover
 
 func _on_health_changed(amount:int):
-	$health_back/health_label.text = "HEALTH: %d" % amount
+	$health_back/VBoxContainer/health_label.text = "HEALTH: %d" % amount
+
+func _on_coords_changed(coords:Vector2):
+	var lat = 13.16 - (coords.y / 20000.0)
+	var lon = 72.48 - (coords.x / 20000.0)
+	$health_back/VBoxContainer/coords_label.text = "%.2f N  %.2f W" % [lat, lon]
 
 func _on_play_line(line:String):
 	

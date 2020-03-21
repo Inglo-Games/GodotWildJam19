@@ -2,6 +2,7 @@ extends Ship
 class_name Player
 
 signal health_changed
+signal coords_changed
 signal game_over
 
 onready var cam = $cam
@@ -9,7 +10,9 @@ onready var cam = $cam
 var is_immune := false
 
 func _physics_process(delta):
-
+	
+	emit_signal("coords_changed", position)
+	
 	if(Input.is_action_just_pressed("raise_sails") and not is_sail_up):
 		raise_sails()
 	if(Input.is_action_just_pressed("lower_sails") and is_sail_up):
