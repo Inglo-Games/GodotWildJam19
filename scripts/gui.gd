@@ -43,9 +43,9 @@ func _on_play_line(line:String):
 		# Even if voices are off, we still play the file to keep the timing of the
 		# subtitles
 		if(ProjectSettings.get_setting("Accessibility/voices")):
-			voice.volume_db = -64.0
-		else:
 			voice.volume_db = 0.0
+		else:
+			voice.volume_db = -64.0
 		voice.play()
 		
 		# Cleanup after done
@@ -54,7 +54,7 @@ func _on_play_line(line:String):
 	
 	# If the audio file doesn't exist...
 	else:
-		yield(get_tree().create_timer(8.0), "timeout")
+		yield(get_tree().create_timer(5.0), "timeout")
 		subs.visible = false
 	
 		# Display tutorial lines after the intro lines
