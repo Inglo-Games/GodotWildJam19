@@ -43,7 +43,7 @@ func _on_play_line(line:String):
 		# Even if voices are off, we still play the file to keep the timing of the
 		# subtitles
 		if(ProjectSettings.get_setting("Accessibility/voices")):
-			voice.volume_db = 0.0
+			voice.volume_db = 11.5
 		else:
 			voice.volume_db = -64.0
 		voice.play()
@@ -57,19 +57,19 @@ func _on_play_line(line:String):
 		yield(get_tree().create_timer(5.0), "timeout")
 		subs.visible = false
 	
-		# Display tutorial lines after the intro lines
-		if(line == "intro_01"):
-			subs.text = DIALOGUE_LINES["tut_01"]
-			subs.visible = true
-			yield(get_tree().create_timer(8.0), "timeout")
-			subs.visible = false
-		elif(line == "intro_02"):
-			subs.text = DIALOGUE_LINES["tut_02"]
-			subs.visible = true
-			yield(get_tree().create_timer(8.0), "timeout")
-			subs.visible = false
-		elif(line == "final_victory"):
-			_on_game_won()
+	# Display tutorial lines after the intro lines
+	if(line == "intro_01"):
+		subs.text = DIALOGUE_LINES["tut_01"]
+		subs.visible = true
+		yield(get_tree().create_timer(6.0), "timeout")
+		subs.visible = false
+	elif(line == "intro_02"):
+		subs.text = DIALOGUE_LINES["tut_02"]
+		subs.visible = true
+		yield(get_tree().create_timer(6.0), "timeout")
+		subs.visible = false
+	elif(line == "final_victory"):
+		_on_game_won()
 
 func _on_game_over():
 	$game_over_panel.popup_centered()
