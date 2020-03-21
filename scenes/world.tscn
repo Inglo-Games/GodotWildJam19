@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/ocean.png" type="Texture" id=2]
@@ -17,17 +17,18 @@
 [ext_resource path="res://scenes/islands/07.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/islands/06.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/islands/08.tscn" type="PackedScene" id=17]
-[ext_resource path="res://assets/shaders/ocean.shader" type="Shader" id=18]
-[ext_resource path="res://assets/shaders/water_normal.png" type="Texture" id=19]
-[ext_resource path="res://assets/shaders/light.png" type="Texture" id=20]
+[ext_resource path="res://assets/shaders/offset.png" type="Texture" id=18]
+[ext_resource path="res://assets/shaders/ocean.shader" type="Shader" id=19]
 [ext_resource path="res://scripts/oob_trigger.gd" type="Script" id=21]
 [ext_resource path="res://scripts/tut_2_trigger.gd" type="Script" id=22]
 
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 18 )
-shader_param/tile_factor = 5.0
+shader = ExtResource( 19 )
+shader_param/tile_factor = 20.0
 shader_param/time_factor = 0.02
-shader_param/normal_texture = ExtResource( 19 )
+shader_param/wave_factor = 0.13
+shader_param/uv_offset_scale = Vector2( 1, 1 )
+shader_param/uv_offset_texture = ExtResource( 18 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 3416.5
@@ -49,7 +50,7 @@ script = ExtResource( 8 )
 
 [node name="ocean" type="Sprite" parent="."]
 material = SubResource( 1 )
-scale = Vector2( 36.3418, 29.1295 )
+scale = Vector2( 36.3199, 29.1778 )
 texture = ExtResource( 2 )
 centered = false
 
@@ -162,9 +163,3 @@ bus = "BGM"
 pause_mode = 2
 stream = ExtResource( 11 )
 bus = "BGM"
-
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 14500.1, 11691.4 )
-scale = Vector2( 113.644, 90.8963 )
-texture = ExtResource( 20 )
-mode = 2
