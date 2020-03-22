@@ -66,8 +66,8 @@ margin_top = 133.0
 margin_right = 552.0
 margin_bottom = 174.0
 focus_neighbour_top = NodePath("../start_btn")
-focus_neighbour_bottom = NodePath("../quit_btn")
-focus_next = NodePath("../quit_btn")
+focus_neighbour_bottom = NodePath("../credits_btn")
+focus_next = NodePath("../credits_btn")
 focus_previous = NodePath("../start_btn")
 text = "Configure Cargo"
 flat = true
@@ -76,14 +76,18 @@ flat = true
 margin_top = 190.0
 margin_right = 552.0
 margin_bottom = 231.0
+focus_neighbour_top = NodePath("../options_btn")
+focus_neighbour_bottom = NodePath("../quit_btn")
+focus_next = NodePath("../quit_btn")
+focus_previous = NodePath("../options_btn")
 text = "Meet the Crew"
 
 [node name="quit_btn" type="Button" parent="panel/container"]
 margin_top = 247.0
 margin_right = 552.0
 margin_bottom = 288.0
-focus_neighbour_top = NodePath("../options_btn")
-focus_previous = NodePath("../options_btn")
+focus_neighbour_top = NodePath("../credits_btn")
+focus_previous = NodePath("../credits_btn")
 text = "Return to Davy Jones' Locker"
 flat = true
 
