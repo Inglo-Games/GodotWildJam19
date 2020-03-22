@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cinematic_05.wav-c0ce010478d422f6df013624f44f15d8.sample"
+
+[deps]
+
+source_file="res://assets/audio/voices/cinematic_05.wav"
+dest_files=[ "res://.import/cinematic_05.wav-c0ce010478d422f6df013624f44f15d8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
