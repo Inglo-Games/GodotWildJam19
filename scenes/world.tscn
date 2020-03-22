@@ -50,7 +50,7 @@ script = ExtResource( 8 )
 
 [node name="ocean" type="Sprite" parent="."]
 material = SubResource( 1 )
-scale = Vector2( 36.3199, 29.1778 )
+scale = Vector2( 24.3693, 17.2774 )
 texture = ExtResource( 2 )
 centered = false
 
@@ -73,7 +73,7 @@ shape = SubResource( 3 )
 script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="voiceover_areas/oob_trigger_02"]
-position = Vector2( 14500, 23400 )
+position = Vector2( 14881.6, 13897.7 )
 shape = SubResource( 4 )
 
 [node name="oob_trigger_03" type="Area2D" parent="voiceover_areas"]
@@ -88,7 +88,7 @@ shape = SubResource( 5 )
 script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="voiceover_areas/oob_trigger_04"]
-position = Vector2( 29143.8, 11561.6 )
+position = Vector2( 19591.6, 11613.5 )
 shape = SubResource( 6 )
 
 [node name="islands" type="Node2D" parent="."]
@@ -97,34 +97,34 @@ shape = SubResource( 6 )
 position = Vector2( 340.132, 323.068 )
 
 [node name="island1" parent="islands" instance=ExtResource( 5 )]
-position = Vector2( 9320.62, 1178.13 )
+position = Vector2( 5859.06, 750.088 )
 
 [node name="island2" parent="islands" instance=ExtResource( 9 )]
-position = Vector2( 4017.87, 4207.56 )
+position = Vector2( 2063.77, 2681.5 )
 subtitle_line = "clue_01"
 
 [node name="island3" parent="islands" instance=ExtResource( 12 )]
-position = Vector2( 21192.9, 2612.52 )
+position = Vector2( 15221.2, 4343.36 )
 subtitle_line = "island_02"
 
 [node name="island4" parent="islands" instance=ExtResource( 14 )]
-position = Vector2( 25193.2, 9546.5 )
+position = Vector2( 18194.2, 10171.8 )
 subtitle_line = "island_03"
 
 [node name="island5" parent="islands" instance=ExtResource( 13 )]
-position = Vector2( 11155.6, 11143.9 )
+position = Vector2( 7451.68, 8185.58 )
 subtitle_line = "clue_03"
 
 [node name="island6" parent="islands" instance=ExtResource( 16 )]
-position = Vector2( 3041.46, 10394.1 )
+position = Vector2( 2031.3, 9407.99 )
 subtitle_line = "island_04"
 
 [node name="island7" parent="islands" instance=ExtResource( 15 )]
-position = Vector2( 14459, 4670.38 )
+position = Vector2( 9215.79, 2914.63 )
 subtitle_line = "clue_02"
 
 [node name="island8" parent="islands" instance=ExtResource( 17 )]
-position = Vector2( 9916.48, 18050.2 )
+position = Vector2( 6934.11, 12422.2 )
 subtitle_line = "island_05"
 
 [node name="projectiles" type="Node2D" parent="."]
