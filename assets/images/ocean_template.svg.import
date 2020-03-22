@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fortress.svg-c10163ecbf55180e45675b1fd30c57a1.stex"
+path="res://.import/ocean_template.svg-ae98cb02cd53568349fda9bb42828744.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/fortress.svg"
-dest_files=[ "res://.import/fortress.svg-c10163ecbf55180e45675b1fd30c57a1.stex" ]
+source_file="res://assets/images/ocean_template.svg"
+dest_files=[ "res://.import/ocean_template.svg-ae98cb02cd53568349fda9bb42828744.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
