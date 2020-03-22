@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/cannonball.gd"
 }, {
+"base": "Ship",
+"class": "EnemyShip",
+"language": "GDScript",
+"path": "res://scripts/enemy_ship.gd"
+}, {
 "base": "StaticBody2D",
 "class": "Island",
 "language": "GDScript",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Cannonball": "",
+"EnemyShip": "",
 "Island": "",
 "Player": "",
 "Ship": ""
@@ -45,6 +51,7 @@ voices=true
 
 config/name="The Incredible Pirate Race"
 run/main_scene="res://scenes/main_menu.tscn"
+boot_splash/image="res://assets/images/splash.png"
 config/icon="res://icon.png"
 
 [display]
