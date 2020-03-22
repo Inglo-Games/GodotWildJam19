@@ -24,7 +24,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 19 )
-shader_param/tile_factor = 20.0
+shader_param/tile_factor = 45.0
 shader_param/time_factor = 0.02
 shader_param/wave_factor = 0.13
 shader_param/uv_offset_scale = Vector2( 1, 1 )

@@ -11,7 +11,7 @@ func _ready():
 		$panel/container/quit_btn.visible = false
 
 func _on_start_btn_pressed():
-	get_tree().change_scene("res://scenes/world.tscn")
+	get_tree().change_scene("res://scenes/intro.tscn")
 
 func _on_options_btn_button_up():
 	var opts = OptionsMenu.instance()
