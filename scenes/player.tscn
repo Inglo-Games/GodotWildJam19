@@ -18,7 +18,7 @@ polygon = PoolVector2Array( -45.7874, 70.2274, 46.0779, 70.0127, 45.434, 7.55285
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 27337
-limit_bottom = 20314
+limit_right = 19500
+limit_bottom = 13800
 
 [node name="tween" type="Tween" parent="."]

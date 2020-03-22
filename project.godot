@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/cannonball.gd"
 }, {
-"base": "Ship",
-"class": "EnemyShip",
-"language": "GDScript",
-"path": "res://scripts/enemy_ship.gd"
-}, {
 "base": "StaticBody2D",
 "class": "Island",
 "language": "GDScript",
@@ -36,7 +31,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Cannonball": "",
-"EnemyShip": "",
 "Island": "",
 "Player": "",
 "Ship": ""
@@ -58,6 +52,8 @@ config/icon="res://icon.png"
 window/size/width=1280
 window/size/height=720
 window/size/resizable=false
+window/size/borderless=true
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
