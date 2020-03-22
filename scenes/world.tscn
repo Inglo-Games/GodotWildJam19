@@ -134,6 +134,51 @@ subtitle_line = "island_05"
 [node name="enemy_01" parent="enemies" instance=ExtResource( 4 )]
 position = Vector2( 6238.05, 3343.24 )
 
+[node name="enemy_02" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 3906.83, 5752.81 )
+
+[node name="enemy_03" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 16699.1, 3558.73 )
+
+[node name="enemy_04" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 11923.7, 6140.65 )
+
+[node name="enemy_05" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 6462.84, 8676.87 )
+
+[node name="enemy_06" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 11238.3, 1822.22 )
+
+[node name="enemy_07" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 3355.4, 11053.1 )
+
+[node name="enemy_08" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 11146.9, 12744 )
+
+[node name="enemy_09" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 8382.15, 10413.4 )
+
+[node name="enemy_10" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 4634.94, 8471.23 )
+
+[node name="enemy_11" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 887.729, 6666.17 )
+
+[node name="enemy_12" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 14072.3, 8910.36 )
+
+[node name="enemy_13" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 11042.7, 8573.74 )
+
+[node name="enemy_14" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 16400.7, 6638.12 )
+
+[node name="enemy_15" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 8658.24, 5852.66 )
+
+[node name="enemy_16" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 4001.54, 1841.16 )
+
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 410.651, 465.018 )
 rotation = 1.5708
