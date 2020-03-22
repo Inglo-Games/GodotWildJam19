@@ -179,6 +179,15 @@ position = Vector2( 8658.24, 5852.66 )
 [node name="enemy_16" parent="enemies" instance=ExtResource( 4 )]
 position = Vector2( 4001.54, 1841.16 )
 
+[node name="enemy_17" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 5944.19, 10673.9 )
+
+[node name="enemy_18" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 12383.4, 10804.2 )
+
+[node name="enemy_19" parent="enemies" instance=ExtResource( 4 )]
+position = Vector2( 13686.1, 3192.58 )
+
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 410.651, 465.018 )
 rotation = 1.5708
