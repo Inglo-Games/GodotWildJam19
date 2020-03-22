@@ -49,7 +49,7 @@ voices=true
 
 [application]
 
-config/name="GodotWildJam19"
+config/name="The Incredible Pirate Race"
 run/main_scene="res://scenes/main_menu.tscn"
 config/icon="res://icon.png"
 
