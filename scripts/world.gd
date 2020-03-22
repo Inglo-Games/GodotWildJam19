@@ -9,6 +9,8 @@ onready var tween := $Tween
 
 func _ready():
 	
+	$player/cam.current = true
+	
 	$islands/start.connect("left_start", $bgm, "play")
 	$player.connect("health_changed", gui, "_on_health_changed")
 	$player.connect("coords_changed", gui, "_on_coords_changed")
