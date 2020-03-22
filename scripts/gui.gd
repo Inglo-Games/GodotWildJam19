@@ -1,6 +1,11 @@
 extends Control
 
 const DIALOGUE_LINES := {
+	"cinematic_01": "Many years ago, the great pirate Captain Draughtwood terrorized the world.",
+	"cinematic_02": "He constructed a fortress from which he ruled the seven seas.",
+	"cinematic_03": "But mankind's memory is nothing if not frail, and the location of his fortress was lost to time.",
+	"cinematic_04": "Now, new clues have surfaced leading the way to this legendary keep and the treasure within.",
+	"cinematic_05": "The pirate swift and cunning enough to rediscover it first will hold the key to ruling the seas just as Draughtwood did...",
 	"intro_01": "Welcome aboard Captain!  All crew is accounted for and we are ready to raise the sails on your orders.",
 	"intro_02": "The boys just finished cleaning up the cannons Captain.  How about ye fire one, see how they are?",
 	"tut_01": "Raise sails: Up\nLower sails: Down\nTurn port: Left\nTurn starboard: Right",
